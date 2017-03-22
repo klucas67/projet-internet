@@ -10,7 +10,7 @@ $this->templateNames['menu'] = 'menu';
 $this->templateNames['foot'] = 'foot';
 $this->templateNames['content'] = $templateName;
 $this->args = $args;
-$this->args['controller'] = $controller;
+//$this->args['controller'] = $controller;
 }
 public function setArgs($key, $val) {
 $this->args[$key] = $val;
