@@ -5,6 +5,7 @@ public function __construct($controller,$templateName, $args) {
 parent::__construct($controller,$templateName,$args);
 $this->templateNames['menu'] = 'userMenu';
 $this->templateNames['top'] = 'userTop';
+$this->templateNames['content'] = 'userContent';
 if($args -> getUser() == 'Anonymous'){
 throw new Exception('a user must be defined');}
 }

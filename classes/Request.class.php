@@ -14,7 +14,6 @@ class Request extends MyObject {
 		}
 		return static::$uniqueRequest;
 	}
-	
 	function __construct(){
 		$this->controllerName=$this->getControllerName();
 		$this->actionName=$this->getActionName();
@@ -33,6 +32,8 @@ class Request extends MyObject {
 	
 
 	public function getControllerName(){
+		if(isset($this->controllerName)){
+			return $this->controllerName;}
 		
 		if(empty($_GET['controller']) && empty($_POST['controller'])){
 			return('Anonymous');
@@ -104,9 +105,9 @@ class Request extends MyObject {
 	
 	
 	public function lireR(){
-		echo "<br> $this->controllerName </br>";
-		echo "<br> $this->actionName </br>";
-		echo "<br> $this->user </br>";
+		echo "<br> Controller : $this->controllerName </br>";
+		echo "<br> Action : $this->actionName </br>";
+		echo "<br> User : $this->user </br>";
 
 	}
 	}

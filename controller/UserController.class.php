@@ -9,6 +9,11 @@ class UserController extends Controller {
 			$view->render();
 		}
 		
+		protected function parties($args){
+			$view = new UserView($this, "partiesAff", $args);
+			$view->render();
+		}
+		
 
 		
 		public function execute(){
