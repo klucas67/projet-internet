@@ -9,7 +9,7 @@ class UserController extends Controller {
 		}
 		
 		protected function creerpartie($args){
-			$view = new UserView($this, 'creation', $args);
+			$view = new UserView($this, 'creerpartie', $args);
 			$view->render();
 		}
 		
