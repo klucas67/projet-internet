@@ -16,4 +16,5 @@ private function load($className) {
 }
 }
 $__LOADER = new AutoLoader();
+//g
 ?>
