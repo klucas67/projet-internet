@@ -10,7 +10,7 @@ $this->templateNames['menu'] = 'menu';
 $this->templateNames['foot'] = 'foot';
 $this->templateNames['content'] = $templateName;
 $this->args = $args;
-//$this->args['controller'] = $controller;
+$this->args['controller'] = $controller;
 }
 public function setArgs($key, $val) {
 $this->args[$key] = $val;
@@ -23,7 +23,7 @@ $this->loadTemplate($this->templateNames['content'], $this->args);
 $this->loadTemplate($this->templateNames['foot'], $this->args);
 }
 
-public function loadTemplate($name,$args=NULL) {
+public function loadTemplate($name,$args) {
 	$templateFileName = __ROOT_DIR  . '/templates/'. $name . 'Template.php';
 	if(is_readable($templateFileName)) {
 		if(isset($args))

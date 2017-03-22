@@ -5,13 +5,18 @@ class UserController extends Controller {
 	public $currentRequest;
 
 		protected function defaultAction($args){
-			$view = new UserView($this, "content", $args);
+			$view = new UserView($this, "userContent", $args);
 			$view->render();
 		}
 		
-		protected function parties($args){
-			$view = new UserView($this, "partiesAff", $args);
+		protected function creerpartie($args){
+			$view = new UserView($this, 'creation', $args);
 			$view->render();
+		}
+		
+		function __construct($request){
+			parent::__construct($request);
+			session_start();
 		}
 		
 

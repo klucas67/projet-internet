@@ -9,6 +9,7 @@ class Dispatcher extends MyObject {
 		}
 		$controller = new $instanceController($request);
 		return $controller;
+		$request->lireR();
 	}
 	
 

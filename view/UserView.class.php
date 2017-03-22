@@ -1,11 +1,11 @@
 <?php
 class UserView extends View {
 
-public function __construct($controller,$templateName, $args) {
+public function __construct($controller,$templateName, $args = array()) {
 parent::__construct($controller,$templateName,$args);
 $this->templateNames['menu'] = 'userMenu';
 $this->templateNames['top'] = 'userTop';
-$this->templateNames['content'] = 'userContent';
+$this->args['user'] = $args->getUser();
 if($args -> getUser() == 'Anonymous'){
 throw new Exception('a user must be defined');}
 }
@@ -18,7 +18,7 @@ $this->loadTemplate($this->templateNames['content'], $this->args);
 $this->loadTemplate($this->templateNames['foot'], $this->args);
 }
 
-public function loadTemplate($name,$args=NULL) {
+public function loadTemplate($name,$args) {
 	$templateFileName = __ROOT_DIR  . '/templates/'. $name . 'Template.php';
 	if(is_readable($templateFileName)) {
 		if(isset($args))

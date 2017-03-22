@@ -1,6 +1,5 @@
 
-<?php
-echo "<p> Bonjour à toi: " . Request::getCurrentRequest()->getUser()." </p>";
-echo Request::getCurrentRequest()->lireR();
-?>
+
+<h3> Tu es bien connecté, féliciations ! </h3>
+
 
