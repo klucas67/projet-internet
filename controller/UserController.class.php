@@ -5,6 +5,7 @@ class UserController extends Controller {
 	public $currentRequest;
 
 		protected function defaultAction($args){
+			echo "<br>" .  $args ->getUser() . "</br>" ;
 			$view = new UserView($this, "content", $args);
 			$view->render();
 		}

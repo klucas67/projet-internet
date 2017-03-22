@@ -1,14 +1,13 @@
 <?php
 class UserView extends View {
-protected $args;
-protected $templateNames;
 
 public function __construct($controller,$templateName, $args) {
 parent::__construct($controller,$templateName,$args);
 $this->templateNames['menu'] = 'userMenu';
 $this->templateNames['top'] = 'userTop';
-if(!$this->args['user'])
-throw new Exception('a user must be defined');
+echo "<br>" .  $args ->getUser() . "</br>" ;
+if($args -> getUser() == 'Anonymous'){
+throw new Exception('a user must be defined');}
 }
 
 public function render() {

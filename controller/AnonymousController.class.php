@@ -40,7 +40,7 @@ class AnonymousController extends Controller {
 			
 			if(User::isLoginUsed($login)){
 				$view = new View($this, 'inscription');
-				$view -> setArgs('inscErrorText' , 'This login is already used');
+				$view -> setArgs('inscErrorText' , 'This login is already used, please choose another');
 				$view -> render();
 			}
 			else{
@@ -55,6 +55,8 @@ class AnonymousController extends Controller {
 				$newRequest = new Request();
 				$newRequest->write('controllerName','user');
 				$newRequest->write('user',$login);
+				echo"<br>" . $newRequest->getController() ." </br>";
+				echo"<br>" . $newRequest->getActionName(). " </br>";
 				$newController=Dispatcher::dispatch($newRequest);
 				$newController->execute();
 				}

@@ -2,6 +2,10 @@
 // Load my root class
 require_once(__ROOT_DIR . '/classes/MyObject.class.php');
 class Request extends MyObject {
+	private $controllerName;
+	private $actionName;
+	private $user;
+		
 	protected static  $uniqueRequest = NULL;
 	public static function getCurrentRequest(){
 		if(static::$uniqueRequest == NULL){
@@ -11,17 +15,20 @@ class Request extends MyObject {
 	}
 	
 	function __construct(){
-		$controllerName=$this->getControllerName();
-		$actionName=$this->getActionName();
-		$user=$this->getUserName();
+		$this->controllerName=$this->getControllerName();
+		$this->actionName=$this->getActionName();
+		$this->user=$this->getUserName();
 	}
-		private $controllerName;
-		private $actionName;
-		private $user;
+		
 
 	public function getController(){
-		return $this->getControllerName();
+		return $this->controllerName;
 	}
+	public function getUSer(){
+		return $this->user;
+	}
+	
+	
 	
 
 	public function getControllerName(){
@@ -75,7 +82,14 @@ class Request extends MyObject {
 	}
 	
 	public function write($cle, $value){
-		$this->cle = $value;
+		$this->$cle = $value;
+	}
+	
+	public function lireR(){
+		echo "<br> $this->controllerName </br>";
+		echo "<br> $this->actionName </br>";
+		echo "<br> $this->user </br>";
+
 	}
 	}
 ?>
