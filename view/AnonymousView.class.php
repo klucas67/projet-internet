@@ -1,8 +1,5 @@
 <?php
 class AnonymousView extends View {
-protected $args;
-protected $templateNames;
-
 
 public function render() {
 $this->loadTemplate($this->templateNames['head'], $this->args);
