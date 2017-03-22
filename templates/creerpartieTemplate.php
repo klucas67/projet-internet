@@ -9,5 +9,5 @@ echo '<span class="error">' . $inscErrorText . '</span>';
 <OPTION>oui
 <OPTION>non
 </SELECT>
-</table>
+<td><input type="submit" value="Créer ma partie" /></td>
 </form>
