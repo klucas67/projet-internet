@@ -53,9 +53,10 @@ class AnonymousController extends Controller {
 					$view->render();
 				} else {
 				$newRequest = new Request();
-				$newRequest->write('controller','user');
-				$newRequest->write('user',$user->getLogin());
-				Dispatcher::dispatch($newRequest);
+				$newRequest->write('controllerName','user');
+				$newRequest->write('user',$login);
+				$newController=Dispatcher::dispatch($newRequest);
+				$newController->execute();
 				}
 				
 			}

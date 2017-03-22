@@ -1,5 +1,5 @@
 <?php
-class AnonymousView extends View {
+class UserView extends View {
 protected $args;
 protected $templateNames;
 
@@ -9,7 +9,7 @@ $this->templateNames['menu'] = 'userMenu';
 $this->templateNames['top'] = 'userTop';
 if(!$this->args['user'])
 throw new Exception('a user must be defined');
-
+}
 
 public function render() {
 $this->loadTemplate($this->templateNames['head'], $this->args);
