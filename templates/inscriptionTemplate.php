@@ -19,7 +19,7 @@ echo '<span class="error">' . $inscErrorText . '</span>';
 </tr>
 <tr>
 <th />
-<td><input type="submit" value="Creer mon compte..." /></td>
+<td><input type="submit" value="Créer mon compte" /></td>
 </tr>
 </table>
 </form

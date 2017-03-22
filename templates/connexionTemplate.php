@@ -6,7 +6,7 @@ echo '<span class="error">' . $inscErrorText . '</span>';
 <form action="index.php" method="post">
 <table>
 <tr>
-<th>Login :</th>
+<th>Login* :</th>
 <td><input type="text" name="connexLogin"/></td>
 </tr>
 <tr>

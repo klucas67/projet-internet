@@ -1,5 +1,5 @@
 
 
-<p> Bonjour à toi </p>
+<p> Bonjour à toi. </p>
 
 
