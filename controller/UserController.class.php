@@ -1,8 +1,7 @@
 <?php
 // Load my root class
-require_once(__ROOT_DIR . '/classes/AutoLoader.class.php');
 class UserController extends Controller {
-	public $currentRequest;
+	protected $user;
 
 		protected function defaultAction($args){
 			$view = new UserView($this, "userContent", $args);

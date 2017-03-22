@@ -1,5 +1,7 @@
+<?php
 
+echo "<h3> Tu es bien connecté, féliciations " . $args['user']. "  ! </h3>";
 
-<h3> Tu es bien connecté, féliciations ! </h3>
+?>
 
 

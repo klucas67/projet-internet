@@ -2,15 +2,15 @@
 class View extends MyObject {
 protected $args;
 protected $templateNames;
-public function __construct($controller, $templateName, $args = array()) {
+
+public function __construct($controller, $templateName, $argument = array()) {
 $this->templateNames = array();
 $this->templateNames['head'] = 'head';
 $this->templateNames['top'] = 'top';
 $this->templateNames['menu'] = 'menu';
 $this->templateNames['foot'] = 'foot';
 $this->templateNames['content'] = $templateName;
-$this->args = $args;
-//$this->args['controller'] = $controller;
+$this->args['controller'] = $controller;
 }
 public function setArgs($key, $val) {
 $this->args[$key] = $val;
