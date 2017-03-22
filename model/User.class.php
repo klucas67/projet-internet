@@ -37,8 +37,9 @@ class User extends Model {
 	
 	public static function check($login, $pwd){
 	$sql = "SELECT * FROM joueur WHERE PSEUDO ='". $login . "' AND MOT_DE_PASSE = '".$pwd . "'";
-	$sth = User::query($sql); 
-	return $user;
+	$sth = User::query($sql);
+	
+	return 0;
 	}
 	
 }
