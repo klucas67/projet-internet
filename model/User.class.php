@@ -31,7 +31,14 @@ class User extends Model {
 	public static function isLoginUsed($login){
 		$sql = "SELECT * FROM joueur WHERE PSEUDO ='".$login."'";
 		$res= User::query($sql);
+
 		return ($res->rowCount()>0);
+	}
+	
+	public static function check($login, $pwd){
+	$sql = "SELECT * FROM joueur WHERE PSEUDO ='". $login . "' AND MOT_DE_PASSE = '".$pwd . "'";
+	$sth = User::query($sql); 
+	return $user;
 	}
 	
 }

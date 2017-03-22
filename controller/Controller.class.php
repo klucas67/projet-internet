@@ -6,7 +6,7 @@ abstract class Controller extends MyObject {
 		return $this->currentRequest;
 	}
 		function __construct($request){
-			$this->currentRequest = ($request -> getCurrentRequest());
+			$this->currentRequest = ($request);
 		}
 		abstract protected function defaultAction($request);
 		public function execute(){

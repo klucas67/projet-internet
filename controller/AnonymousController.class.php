@@ -14,10 +14,17 @@ class AnonymousController extends Controller {
 			$view->render();
 		}
 		
+		protected function connexion($request){
+			$view = new AnonymousView($this, 'connexion');
+			$view->render();
+		}
+		
 		public function execute(){
 			$login = $this->getRequest()->getInscLogin();
 			$pwd = $this->getRequest()->getInscPwd();
 			$mail = $this->getRequest()->getInscMail();
+			$clogin = $this->getRequest()->getConnLogin();
+			$cpwd = $this->getRequest()->getConnPwd();
 			if(($login!=NULL) AND ($pwd!=NULL)){
 				$args = array (
 				'login' => $login,
@@ -25,13 +32,22 @@ class AnonymousController extends Controller {
 				'mail' => $mail);
 				$this->validateInscription($args);
 			}
+			else if((($clogin!=NULL) AND ($cpwd!=NULL))){
+				$args = array (
+				'login' => $clogin,
+				'password' => $cpwd);
+				$this->validateConnexion($args);
+			}
 			else{
 			$methodName = $this->getRequest()->getActionName();
 				if(!method_exists($this,$methodName))
 					throw new exception ("$methodName n'existe pas");
 				else
 					$this->$methodName($this->getRequest());
-		}}
+		}} 
+		
+		
+		
 		
 					
 		
@@ -55,8 +71,32 @@ class AnonymousController extends Controller {
 				$newRequest = new Request();
 				$newRequest->write('controllerName','user');
 				$newRequest->write('user',$login);
-				echo"<br>" . $newRequest->getController() ." </br>";
-				echo"<br>" . $newRequest->getActionName(). " </br>";
+				$newController=Dispatcher::dispatch($newRequest);
+				$newController->execute();
+				}
+				
+			}
+		}
+		
+		protected function validateConnexion($args){
+			$login = $args['login'];
+			
+			if(!(User::isLoginUsed($login))){
+				$view = new View($this, 'connexion');
+				$view -> setArgs('inscErrorText' , 'This login is not used');
+				$view -> render();
+			}
+			else{
+				$password = $args['password'];
+				$user = User::check($login, $password);
+				if(!isset($user)) {
+					$view = new View($this,'inscription');
+					$view->setArgs('inscErrorText', 'Wrong Login/Password combination');
+					$view->render();
+				} else {
+				$newRequest = new Request();
+				$newRequest->write('controllerName','user');
+				$newRequest->write('user',$login);
 				$newController=Dispatcher::dispatch($newRequest);
 				$newController->execute();
 				}

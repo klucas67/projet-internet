@@ -10,6 +10,7 @@ class Request extends MyObject {
 	public static function getCurrentRequest(){
 		if(static::$uniqueRequest == NULL){
 			static::$uniqueRequest = new Request();
+			
 		}
 		return static::$uniqueRequest;
 	}
@@ -81,9 +82,26 @@ class Request extends MyObject {
 	return($_POST['inscPassword'] );
 	}
 	
+	public function getConnLogin(){
+		if(empty($_POST['connexLogin'])){
+			return NULL;
+		}
+		else
+	return($_POST['connexLogin'] );
+	}
+	
+	public function getConnPwd(){
+		if(empty($_POST['connexPassword'])){
+			return NULL;
+		}
+		else
+	return($_POST['connexPassword'] );
+	}
+	
 	public function write($cle, $value){
 		$this->$cle = $value;
 	}
+	
 	
 	public function lireR(){
 		echo "<br> $this->controllerName </br>";
