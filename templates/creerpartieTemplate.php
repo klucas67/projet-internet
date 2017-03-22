@@ -4,7 +4,8 @@ if(isset($inscErrorText))
 echo '<span class="error">' . $inscErrorText . '</span>';
 ?>
 <form action="index.php" method="post">
-<SELECT name="Partie publique" size="1">
+<p> La partie est elle publique? <p>
+<SELECT name="Partiepublique" size="1">
 <OPTION>oui
 <OPTION>non
 </SELECT>

@@ -1,7 +1,7 @@
+<div class="alert alert-success">
 <?php
 
-echo "<h3> Tu es bien connecté, féliciations " . $args['user']. "  ! </h3>";
+echo "<h3> Tu es bien connecté, félicitations " . $args['user']. "  ! </h3>";
 
 ?>
-
-
+</div>

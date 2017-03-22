@@ -22,4 +22,4 @@ echo '<span class="error">' . $inscErrorText . '</span>';
 <td><input type="submit" value="Créer mon compte" /></td>
 </tr>
 </table>
-</form
+</form>
