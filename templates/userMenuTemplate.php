@@ -20,12 +20,14 @@
         <ul class="nav navbar-nav">
 
 <?php
+echo '<li><a href="index.php?action=showuserprofil&user='. Session::get('user').'&controller='. $args['controller']->getRequest()->getController(). '" >Profil</a></li>';
+echo '<li><a href="index.php?action=creerpartie&user='. Session::get('user').'&controller='. $args['controller']->getRequest()->getController(). '" >Créer une partie</a></li>';
+echo '<li><a href="index.php?action=partiesencours&user='. Session::get('user').'&controller='. $args['controller']->getRequest()->getController(). '" >Parties en cours</a></li>';
+echo '<li><a href="index.php?action=partiesjoignables&user='. Session::get('user').'&controller='. $args['controller']->getRequest()->getController(). '" >Parties joignables</a></li>';
 
-echo '<li><a href="index.php?action=creerpartie&user='. $args['user'].'&controller='. $args['controller']->getRequest()->getController(). '" >Créer une partie</a></li>';
+
 ?>
-<li><a href="index.php?action=partiesencours">Parties en cours</a></li>
-            <li><a href="index.php?action=partiesjoignables">Parties joignables</a></li>
-			<li><a href="index.php">Déconnexion</a></li>
+			<li><a href="index.php" >Deconnexion</a></li>
         </ul>
     </div>
 </div>

@@ -12,7 +12,28 @@ class UserController extends Controller {
 			$view = new UserView($this, 'creerpartie', $args);
 			$view->render();
 		}
-		
+
+		protected function showuserprofil($args){
+			$currentUser = User::loadThisUser($args->getLogin());
+			$view = new UserView($this, 'creerpartie', $args);
+			$view->render();
+		}
+
+		protected function partiesencours($args){
+			$parties = Partie::loadAllRunningParties();
+			$view = new UserView($this, 'partiesencours', $args);
+			$view->setArgs('parties', $parties);
+			$view->render();
+		}
+
+		protected function partiesjoignables($args){
+			$parties = Partie::loadAllReachablesParties();
+			$view = new UserView($this, 'partiesjoignables', $args);
+			$view ->setArgs('parties', $parties);
+			$view->render();
+		}
+
+
 		function __construct($request){
 			parent::__construct($request);
 			session_start();
@@ -23,7 +44,7 @@ class UserController extends Controller {
 		public function execute(){
 			$methodName = $this->getRequest()->getActionName();
 				if(!method_exists($this,$methodName))
-					throw new exception ("$methodName n'existe pas");
+					echo($methodName);
 				else
 					$this->$methodName($this->getRequest());
 			}

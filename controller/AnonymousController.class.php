@@ -71,7 +71,6 @@ class AnonymousController extends Controller {
 				$newRequest = new Request();
 				$newRequest->write('controllerName','user');
 				$newRequest->write('user',$login);
-				Session::setSession("user", "$login" );
 				$newController=Dispatcher::dispatch($newRequest);
 				$newController->execute();
 				}
@@ -98,6 +97,7 @@ class AnonymousController extends Controller {
 				$newRequest = new Request();
 				$newRequest->write('controllerName','user');
 				$newRequest->write('user',$login);
+				Session::set('user', $login);
 				$newController=Dispatcher::dispatch($newRequest);
 				$newController->execute();
 				}

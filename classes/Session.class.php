@@ -1,16 +1,15 @@
 <?php
-// Load my root class
-class Session extends MyObject {
-	public static function setSession($cle, $val){
-		$_SESSION[$cle] = $val;
-	}
-	
-	public static function getSession($cle){
-		if(!isset($_SESSION[$cle])){
-			return NULL;
-		}
-		return $_SESSION[$cle];
-	}
+	//facilite l'accès aux données de sessions
+	class Session extends MyObject{ 
 
-}
+		public static function set($key, $value){
+			$_SESSION[$key]=$value;
+		}
+
+		public static function get($key){
+			if(isset($_SESSION[$key]))
+			return $_SESSION[$key];
+		}
+
+	}
 ?>
