@@ -14,8 +14,9 @@ class UserController extends Controller {
 		}
 
 		protected function showuserprofil($args){
-			$currentUser = User::loadThisUser($args->getLogin());
-			$view = new UserView($this, 'creerpartie', $args);
+			$currentUser = User::loadThisUser($args->getUserName());
+			$view = new UserView($this, 'showprofile', $args);
+			$view -> setArgs('user', $currentUser);
 			$view->render();
 		}
 
@@ -36,7 +37,7 @@ class UserController extends Controller {
 
 		function __construct($request){
 			parent::__construct($request);
-			session_start();
+
 		}
 		
 

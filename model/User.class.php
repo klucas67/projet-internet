@@ -7,6 +7,14 @@ class User extends Model {
 	public function getLogin(){
 		return $this->PSEUDO;
 	}
+
+	public static function loadThisUser($login){
+	$sql = "SELECT * FROM joueur WHERE PSEUDO = '".$login ."'";
+	$sth = User::query($sql);
+	$res = $sth->fetch();
+	return $res;
+	}
+	
 	
 	
 	
