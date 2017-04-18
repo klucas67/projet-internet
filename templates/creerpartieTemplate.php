@@ -3,11 +3,13 @@
 if(isset($inscErrorText))
 echo '<span class="error">' . $inscErrorText . '</span>';
 ?>
-<form action="index.php" method="post">
+<?php
+echo '<form action="index.php?user='.SESSION::get('user').'&controller=user" method="post">'
+?>
 <p> La partie est elle publique? <p>
 <SELECT name="Partiepublique" size="1">
 <OPTION>oui
 <OPTION>non
 </SELECT>
-<td><input type="submit" value="Créer ma partie" /></td>
+<td><input type="submit" value="Creer Partie" /></td>
 </form>

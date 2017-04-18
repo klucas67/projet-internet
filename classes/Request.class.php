@@ -65,6 +65,15 @@ class Request extends MyObject {
 		else
 	return($_POST['inscLogin'] );
 	}
+
+	public function getPartieOption(){
+		if(empty($_POST['Partiepublique'])){
+			return NULL;
+		}
+		else
+	return($_POST['Partiepublique'] );
+	}
+	
 	
 	public function getInscMail(){
 		if(empty($_POST['inscMail'])){
@@ -97,6 +106,14 @@ class Request extends MyObject {
 		}
 		else
 	return($_POST['connexPassword'] );
+	}
+
+	public function getIdPartie(){
+		if(empty($_GET['idpartie'])){
+			return NULL;
+		}
+		else
+	return($_GET['idpartie'] );
 	}
 	
 	public function write($cle, $value){
